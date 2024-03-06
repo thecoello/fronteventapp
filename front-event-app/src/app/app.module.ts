@@ -7,12 +7,14 @@ import { RegistroUsuarioComponent } from './components/usuarios/registro-usuario
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RecuperarPasswordComponent } from './components/usuarios/recuperar-password/recuperar-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroUsuarioComponent,
-    HomeComponent
+    HomeComponent,
+    RecuperarPasswordComponent
   ],
   imports: [
     BrowserModule,
