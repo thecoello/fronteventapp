@@ -12,7 +12,7 @@ export class UserAdminService {
 
   constructor(private httpClient: HttpClient) {}
 
-  postUser(body?: UserAdmin):Observable<UserAdmin>{
+  postUser(body?: UserAdmin):Observable<any>{
     const headers = new HttpHeaders({'accept': 'application/json'})
     return this.httpClient.post<UserAdmin>(this.url + "users",body, {headers})
   }
