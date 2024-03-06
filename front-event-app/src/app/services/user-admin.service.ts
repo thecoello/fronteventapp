@@ -8,13 +8,18 @@ import { UserAdmin } from '../models/users'
 })
 export class UserAdminService {
 
-  private url: String =  "http://localhost:8080/"
+  private url: String =  "http://localhost:8080"
 
   constructor(private httpClient: HttpClient) {}
 
   postUser(body?: UserAdmin):Observable<any>{
     const headers = new HttpHeaders({'accept': 'application/json'})
-    return this.httpClient.post<UserAdmin>(this.url + "users",body, {headers})
+    return this.httpClient.post<UserAdmin>(`${this.url}/users`,body, {headers})
   }
+
+  forgotPassword(email?: String):Observable<any>{
+    return this.httpClient.post(`${this.url}/forgot_password?email=${email}`, null ,{ observe: 'response', responseType: 'text' })
+  }
+
 
 }
