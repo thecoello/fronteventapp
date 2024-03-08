@@ -16,7 +16,7 @@ a{
     height: 100vh;
 }
 
-.btn{
+.btn-p-b{
     border-radius: 15px !important;
     padding: 0.5rem 2rem !important;
 }
@@ -44,6 +44,10 @@ a{
     border: #000000 1px solid;
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
+
 
 //TITULOS CURSIVO
 .title-caveat{
@@ -59,3 +63,6 @@ a{
     background-color: #000000;
     border-color: #000000; 
 }
+
+//CREAR EVENTOS
+

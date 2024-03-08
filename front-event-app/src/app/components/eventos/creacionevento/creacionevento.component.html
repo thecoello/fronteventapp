@@ -74,6 +74,13 @@
                 </div>
             </div>
 
+            <div class="mb-3 form-group">
+                <label for="direccion" class="form-label m-0 p-0 m-0 p-0">Dirección completa *</label>
+                <input placeholder="Calle..." type="text" class="form-control" id="direccion"
+                    aria-describedby="direccion" name="direccion" [(ngModel)]="modelEvento.direccion"
+                    required>
+            </div>
+
             <div class="row">
                 <div class="col-6">
                     <div class="mb-3 form-group">
@@ -97,14 +104,60 @@
 
             </div>
 
-            <div class="mb-3 form-group">
-                <label for="direccion" class="form-label m-0 p-0 m-0 p-0">Dirección completa</label>
-                <input placeholder="Calle..." type="text" class="form-control" id="direccion"
-                    aria-describedby="direccion" name="direccion" [(ngModel)]="modelEvento.direccion"
-                    required>
+            <div *ngIf="eventsWithZones" class="row">
+
+                <h3>Añadir zonas</h3>
+                <p>Puedes añadir zonas si tu locación lo requiere así puedes segmentar tickets por tipo y cantidades</p>
+
+                <div class="mb-3 form-group">
+                    <label for="image" class="form-label m-0 p-0 m-0 p-0">Mapa de zonas</label>
+                    <input type="file" class="form-control" id="image"
+                        aria-describedby="image" name="image" [(ngModel)]="modelEvento.imageMapaZona" required>
+                    <div class="form-text">(Imágen jpg, jpeg, png | Tamaño máximo: 1mb |  Dimensión: 1000px x 1000px )</div>
+                </div>
+                
+                <div *ngFor="let zone of allZones; let i = index">
+
+
+                    <hr>
+                    <div class="row pt-2 pb-2">
+                        <p class="m-0"><b>Zona {{i + 1}}</b></p>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label for="nombreZona" class="form-label m-0 p-0 m-0 p-0">Nombre de zona *</label>
+                                <input placeholder="Tickets General" type="text" class="form-control" id="nombreZona"
+                                    aria-describedby="nombreZona" name="nombreZona" [(ngModel)]="zone.nombreZona"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="cantidadDeTickets" class="form-label m-0 p-0 m-0 p-0">Cantidad de tickets *</label>
+                                <input placeholder="30" type="number" class="form-control" id="cantidadDeTickets"
+                                    aria-describedby="cantidadDeTickets" name="cantidadDeTickets" [(ngModel)]="zone.cantidadDeTickets"  required>
+                            </div>
+                        </div>
+                        <div class="col-1 d-flex align-items-center justify-content-center">
+                            <span class="cursor-pointer" (click)="removeZone(i)" ><i class="bi bi-trash"></i> </span>
+                        </div>
+                    </div>
+
+                </div>
+                
+              
+
+                <div class="row mt-4 mb-4">
+                    <div class="col text-start">
+                        <span class="cursor-pointer" (click)="addZones()" ><i class="bi bi-plus-circle-fill"></i> Añadir zona </span>
+                    </div>
+                </div>
+
+
             </div>
 
-            <button type="submit" class="btn btn-black p-2 rounded-3">Crear evento </button>
+           
+
+            <button type="submit" class="btn btn-p-b btn-black p-2 rounded-3 w-100 mt-4 mb-4">Crear Evento </button>
 
         </form>
     </div>
