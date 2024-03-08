@@ -12,15 +12,36 @@ a{
     color: #3E9BD3;
 }
 
+#container-main{
+    height: 100vh;
+}
+
+.btn{
+    border-radius: 15px;
+    padding: 0.5rem 1.5rem;
+}
+
 .btn-black{
     background-color: #000000;
     color: #ffffff;
-    border: #000000;
+    border: #000000 1px solid;
 }
 
 .btn-black:hover{
     background-color: #484848;
     color: #ffffff;
+}
+
+.btn-outline-black{
+    background-color: #ffffff;
+    color: #000000;
+    border: #000000 1px solid;
+}
+
+.btn-outline-black:hover{
+    background-color: #f0f0f0;
+    color: #000000;
+    border: #000000 1px solid;
 }
 
 .title-caveat{
