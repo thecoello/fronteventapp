@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Event } from 'src/app/models/events';
 import { Zones } from 'src/app/models/zones';
@@ -8,7 +8,7 @@ import { Zones } from 'src/app/models/zones';
   templateUrl: './creacionevento.component.html',
   styleUrls: ['./creacionevento.component.scss']
 })
-export class CreacioneventoComponent {
+export class CreacioneventoComponent implements OnInit {
 
   modelEvento: Event = new Event()
   modelZones: Zones = new Zones()
@@ -24,6 +24,9 @@ export class CreacioneventoComponent {
   eventOnline: boolean = false
 
   constructor() { }
+  ngOnInit(): void {
+    this.modelEvento.tipoEvento = ""
+  }
 
   eventOnlineCheck(event: any){
     event.target.value == "online" ? this.eventOnline = true : this.eventOnline = false

@@ -30,7 +30,7 @@
                     <div class="mb-3 form-group">
                         <label for="tipoEvento" class="form-label m-0 p-0 m-0 p-0">Tipo de evento *</label>
                         <select (change)="eventOnlineCheck($event)" name="tipoEvento" id="tipoEvento" class="form-select" aria-label="Default select example"  [(ngModel)]="modelEvento.tipoEvento">
-                            <option disabled >Selecciona una opción</option>
+                            <option value="" disabled selected>Selecciona una opción</option>
                             <option value="presencial">Presencial</option>
                             <option value="online">En linea</option>
                         </select>
