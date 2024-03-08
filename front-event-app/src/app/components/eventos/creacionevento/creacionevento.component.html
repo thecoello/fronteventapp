@@ -124,17 +124,17 @@
                         <p class="m-0"><b>Zona {{i + 1}}</b></p>
                         <div class="col-8">
                             <div class="form-group">
-                                <label for="nombreZona" class="form-label m-0 p-0 m-0 p-0">Nombre de zona *</label>
-                                <input placeholder="Tickets General" type="text" class="form-control" id="nombreZona"
-                                    aria-describedby="nombreZona" name="nombreZona" [(ngModel)]="zone.nombreZona"
+                                <label for="nombreZona-{{i+1}}" class="form-label m-0 p-0 m-0 p-0">Nombre de zona *</label>
+                                <input placeholder="Tickets General" type="text" class="form-control" id="nombreZona-{{i+1}}"
+                                    name="nombreZona-{{i+1}}" [(ngModel)]="allZones[i].nombreZona"
                                     required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
-                                <label for="cantidadDeTickets" class="form-label m-0 p-0 m-0 p-0">Cantidad de tickets *</label>
-                                <input placeholder="30" type="number" class="form-control" id="cantidadDeTickets"
-                                    aria-describedby="cantidadDeTickets" name="cantidadDeTickets" [(ngModel)]="zone.cantidadDeTickets"  required>
+                                <label for="cantidadDeTickets-{{i+1}}" class="form-label m-0 p-0 m-0 p-0">Cantidad de tickets *</label>
+                                <input placeholder="30" type="number" class="form-control" id="cantidadDeTickets-{{i+1}}"
+                                    name="cantidadDeTickets-{{i+1}}" [(ngModel)]="allZones[i].cantidadDeTickets"  required>
                             </div>
                         </div>
                         <div class="col-1 d-flex align-items-center justify-content-center">

@@ -11,8 +11,7 @@ import { Zones } from 'src/app/models/zones';
 export class CreacioneventoComponent implements OnInit {
 
   modelEvento: Event = new Event()
-  modelZones: Zones = new Zones()
-  allZones: Array<Zones> = [this.modelZones]
+  allZones: Array<Zones> = []
 
   creatingEvent: boolean = false
   registerEventOk?: string
@@ -34,17 +33,19 @@ export class CreacioneventoComponent implements OnInit {
 
   eventZones(event: any){
     !this.eventsWithZones ? this.eventsWithZones = true : this.eventsWithZones = false
+    if(!this.eventsWithZones){
+      this.allZones = []
+    }
   }
 
   addZones(){
-    this.allZones.push(this.modelZones)
+    this.allZones.push(new Zones())
     console.log(this.allZones)
   }
 
   removeZone(zoneKey: number){
     this.allZones.splice(zoneKey,1)
   }
-
 
   onSubmit(registroEvento: NgForm, event: any): void {
       this.creatingEvent = true     
