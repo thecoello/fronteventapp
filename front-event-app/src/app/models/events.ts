@@ -13,5 +13,6 @@ export class Event {
     capacidadEvento?: Number
     direccion?: String
     zonas?: Array<Zones>
+    imageMapaZona?: String
 }
 
