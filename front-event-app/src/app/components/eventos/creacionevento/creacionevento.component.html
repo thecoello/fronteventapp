@@ -29,10 +29,10 @@
                 <div class="col-6">
                     <div class="mb-3 form-group">
                         <label for="tipoEvento" class="form-label m-0 p-0 m-0 p-0">Tipo de evento *</label>
-                        <select name="tipoEvento" id="tipoEvento" class="form-select" aria-label="Default select example"  [(ngModel)]="modelEvento.tipoEvento">
+                        <select (change)="eventOnlineCheck($event)" name="tipoEvento" id="tipoEvento" class="form-select" aria-label="Default select example"  [(ngModel)]="modelEvento.tipoEvento">
                             <option disabled >Selecciona una opción</option>
-                            <option value="1">Presencial</option>
-                            <option value="2">En linea</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="online">En linea</option>
                         </select>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="mb-3 form-group">
+            <div *ngIf="!eventOnline" class="mb-3 form-group">
                 <label for="direccion" class="form-label m-0 p-0 m-0 p-0">Dirección completa *</label>
                 <input placeholder="Calle..." type="text" class="form-control" id="direccion"
                     aria-describedby="direccion" name="direccion" [(ngModel)]="modelEvento.direccion"
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="mb-3 form-group">
+                    <div  *ngIf="!eventOnline" class="mb-3 form-group">
                         <label for="capacidadEvento" class="form-label m-0 p-0 m-0 p-0">Capacidad del evento presencial *</label>
                         <input placeholder="{{eventsWithZones ? '-' : 150}}" type="number" class="form-control" id="capacidadEvento"
                             aria-describedby="capacidadEvento" name="capacidadEvento" [(ngModel)]="modelEvento.capacidadEvento" [disabled]="eventsWithZones"  required>

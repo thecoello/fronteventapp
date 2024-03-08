@@ -21,7 +21,13 @@ export class CreacioneventoComponent {
 
   eventsWithZones: boolean = false
 
+  eventOnline: boolean = false
+
   constructor() { }
+
+  eventOnlineCheck(event: any){
+    event.target.value == "online" ? this.eventOnline = true : this.eventOnline = false
+  }
 
   eventZones(event: any){
     !this.eventsWithZones ? this.eventsWithZones = true : this.eventsWithZones = false
