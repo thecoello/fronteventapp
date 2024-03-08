@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RecuperarPasswordComponent } from './components/usuarios/recuperar-password/recuperar-password.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { CreacioneventoComponent } from './components/eventos/creacionevento/creacionevento.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     RegistroUsuarioComponent,
     HomeComponent,
     RecuperarPasswordComponent,
-    NavigationComponent
+    NavigationComponent,
+    CreacioneventoComponent
   ],
   imports: [
     BrowserModule,

@@ -17,8 +17,8 @@ a{
 }
 
 .btn{
-    border-radius: 15px;
-    padding: 0.5rem 1.5rem;
+    border-radius: 15px !important;
+    padding: 0.5rem 2rem !important;
 }
 
 .btn-black{
@@ -44,9 +44,18 @@ a{
     border: #000000 1px solid;
 }
 
+
+//TITULOS CURSIVO
 .title-caveat{
     font-family: "Caveat", cursive;
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
+}
+
+//FORMULARIOS
+
+.form-check-input:checked{
+    background-color: #000000;
+    border-color: #000000; 
 }

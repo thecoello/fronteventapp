@@ -1,0 +1,118 @@
+<div class="row w-100">
+
+    <div class="col-1">
+    </div>
+
+    <div class="col-5">
+        <h3>Crear evento</h3>
+
+        <hr>
+
+        <form #registroEvento="ngForm" (ngSubmit)="onSubmit(registroEvento, $event)"
+            class="{{inputsValidate? 'was-validated' : 'needs-validation'}}">
+            <div class="mb-3 form-group">
+                <label for="image" class="form-label m-0 p-0 m-0 p-0">Banner Evento</label>
+                <input type="file" class="form-control" id="image"
+                    aria-describedby="image" name="image" [(ngModel)]="modelEvento.image" required>
+                <div class="form-text"> (Imágen jpg, jpeg, png | Tamaño máximo: 1mb | Dimensión: 1000px x 1000px )</div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="nombreEvento" class="form-label m-0 p-0 m-0 p-0">Nombre de evento *</label>
+                        <input placeholder="Exposición de arte" type="text" class="form-control" id="nombreEvento"
+                            aria-describedby="nombreEvento" name="nombreEvento" [(ngModel)]="modelEvento.nombreEvento"
+                            required>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="tipoEvento" class="form-label m-0 p-0 m-0 p-0">Tipo de evento *</label>
+                        <select name="tipoEvento" id="tipoEvento" class="form-select" aria-label="Default select example"  [(ngModel)]="modelEvento.tipoEvento">
+                            <option disabled >Selecciona una opción</option>
+                            <option value="1">Presencial</option>
+                            <option value="2">En linea</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="nombre" class="form-label m-0 p-0 m-0 p-0">Descripción</label>
+                <textarea placeholder="Este evento es..." class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="FechaYHoraInicio" class="form-label m-0 p-0 m-0 p-0">Fecha y Hora inicio *</label>
+                     <div class="d-flex">
+                        <input placeholder="Exposición de arte" type="date" class="form-control" id="fechaInicio"
+                        aria-describedby="fechaInicio" name="fechaInicio" [(ngModel)]="modelEvento.fechaInicio"
+                        required>
+                        <input placeholder="Exposición de arte" type="time" class="form-control" id="horeIncio"
+                        aria-describedby="horeIncio" name="horeIncio" [(ngModel)]="modelEvento.horeIncio"
+                        required>
+                     </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="FechaYHoraInicio" class="form-label m-0 p-0 m-0 p-0">Fecha y Hora final *</label>
+                     <div class="d-flex">
+                        <input placeholder="Exposición de arte" type="date" class="form-control" id="fechaFinal"
+                        aria-describedby="fechaFinal" name="fechaFinal" [(ngModel)]="modelEvento.fechaFinal"
+                        required>
+                        <input placeholder="Exposición de arte" type="time" class="form-control" id="horeFinal"
+                        aria-describedby="horeFinal" name="horeFinal" [(ngModel)]="modelEvento.horeFinal"
+                        required>
+                     </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="enlaceStreaming" class="form-label m-0 p-0 m-0 p-0">Enlace Streaming *</label>
+                        <input placeholder="https://youtube.com" type="text" class="form-control" id="enlaceStreaming"
+                            aria-describedby="enlaceStreaming" name="enlaceStreaming" [(ngModel)]="modelEvento.enlaceStreaming"
+                            required>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="capacidadEvento" class="form-label m-0 p-0 m-0 p-0">Capacidad del evento presencial *</label>
+                        <input placeholder="{{eventsWithZones ? '-' : 150}}" type="number" class="form-control" id="capacidadEvento"
+                            aria-describedby="capacidadEvento" name="capacidadEvento" [(ngModel)]="modelEvento.capacidadEvento" [disabled]="eventsWithZones"  required>
+                            <div class="form-check form-switch">
+                                <input (click)="eventZones($event)" class="form-check-input" type="checkbox" role="switch" id="eventosZonas">
+                                <label class="form-check-label form-text align-intems-center d-flex" for="eventosZonas">Activa esta opción si tu evento tendrá zonas</label>
+                              </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="direccion" class="form-label m-0 p-0 m-0 p-0">Dirección completa</label>
+                <input placeholder="Calle..." type="text" class="form-control" id="direccion"
+                    aria-describedby="direccion" name="direccion" [(ngModel)]="modelEvento.direccion"
+                    required>
+            </div>
+
+            <button type="submit" class="btn btn-black p-2 rounded-3">Crear evento </button>
+
+        </form>
+    </div>
+
+    <div class="col-5 d-flex justify-content-end">
+
+    </div>
+
+    <div class="col-1"></div>
+
+</div>
