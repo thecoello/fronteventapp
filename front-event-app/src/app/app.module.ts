@@ -8,13 +8,15 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RecuperarPasswordComponent } from './components/usuarios/recuperar-password/recuperar-password.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroUsuarioComponent,
     HomeComponent,
-    RecuperarPasswordComponent
+    RecuperarPasswordComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
