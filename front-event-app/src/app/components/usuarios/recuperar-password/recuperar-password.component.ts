@@ -38,7 +38,6 @@ export class RecuperarPasswordComponent {
   
         },
         (error)=>{
-          console.log(error)
   
           setTimeout(() => {
             this.creatingUser = false
