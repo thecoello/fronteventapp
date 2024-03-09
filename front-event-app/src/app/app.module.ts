@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { RecuperarPasswordComponent } from './components/usuarios/recuperar-password/recuperar-password.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CreacioneventoComponent } from './components/eventos/creacionevento/creacionevento.component';
+import { EdicionUsuarioComponent } from './components/usuarios/edicion-usuario/edicion-usuario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreacioneventoComponent } from './components/eventos/creacionevento/cre
     HomeComponent,
     RecuperarPasswordComponent,
     NavigationComponent,
-    CreacioneventoComponent
+    CreacioneventoComponent,
+    EdicionUsuarioComponent
   ],
   imports: [
     BrowserModule,
