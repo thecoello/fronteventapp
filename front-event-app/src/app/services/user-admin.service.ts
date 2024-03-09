@@ -20,6 +20,10 @@ export class UserAdminService {
   forgotPassword(email?: String):Observable<any>{
     return this.httpClient.post(`${this.url}/forgot_password?email=${email}`, null ,{ observe: 'response', responseType: 'text' })
   }
-
-
+  
+  deleteUser(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.url}/users/${id}`, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
+  }
 }
