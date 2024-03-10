@@ -12,7 +12,6 @@ export class EliminarUsuarioComponent implements OnInit {
   user: UserAdmin = new UserAdmin();
   message: string = '';
 
-  // Cambia UserService por UserAdminService aquí
   constructor(private userAdminService: UserAdminService, private router: Router) { }
 
   ngOnInit(): void {

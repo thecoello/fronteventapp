@@ -10,7 +10,7 @@ describe('EliminarUsuarioComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ EliminarUsuarioComponent ],
-      imports: [ FormsModule, HttpClientTestingModule ] // Importa módulos necesarios para las pruebas
+      imports: [ FormsModule, HttpClientTestingModule ]
     })
     .compileComponents();
   });
