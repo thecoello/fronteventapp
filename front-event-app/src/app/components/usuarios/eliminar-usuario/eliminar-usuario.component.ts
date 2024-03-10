@@ -1,42 +1,44 @@
-import { Component } from '@angular/core';
-import { UserService } from '../../services/user.service';
-import { Usuario } from '../../models/users';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserAdminService } from 'src/app/services/user-admin.service';
+import { UserAdmin } from 'src/app/models/user-admin'; 
 
 @Component({
   selector: 'app-eliminar-usuario',
   templateUrl: './eliminar-usuario.component.html',
   styleUrls: ['./eliminar-usuario.component.scss']
 })
-export class EliminarUsuarioComponent {
-  user: Usuario = new Usuario('', '', '', '', '');
+export class EliminarUsuarioComponent implements OnInit {
+  user: UserAdmin = new UserAdmin();
   message: string = '';
 
-  constructor(private userService: UserService) {}
+  // Cambia UserService por UserAdminService aquí
+  constructor(private userAdminService: UserAdminService, private router: Router) { }
+
+  ngOnInit(): void {
+  }
 
   updateUser(): void {
-    this.userService.updateUser(this.user).subscribe({
+    this.userAdminService.updateUser(this.user).subscribe({
       next: (response) => {
         this.message = 'Usuario actualizado con éxito.';
       },
-      error: () => {
+      error: (error) => {
+        console.error('Error al actualizar el usuario:', error);
         this.message = 'Error al actualizar el usuario.';
       }
     });
   }
 
   deleteUser(): void {
-    this.userService.authenticateUser(this.user.email, this.user.password).subscribe({
+    this.userAdminService.deleteUser(this.user.id).subscribe({
       next: (response) => {
-        if(response.token) {
-          this.userService.deleteUser(this.user.email).subscribe({
-            next: () => this.message = 'Usuario eliminado con éxito.',
-            error: () => this.message = 'Error al eliminar el usuario.'
-          });
-        } else {
-          this.message = 'Email no existe o contraseña errónea.';
-        }
+        this.message = 'Usuario eliminado con éxito.';
       },
-      error: () => this.message = 'Error en la autenticación.'
+      error: (error) => {
+        console.error('Error al eliminar el usuario:', error);
+        this.message = 'Error al eliminar el usuario.';
+      }
     });
   }
 }

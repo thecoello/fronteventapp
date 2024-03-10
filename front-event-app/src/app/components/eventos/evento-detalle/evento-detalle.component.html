@@ -1,0 +1,10 @@
+<div *ngIf="evento">
+  <h2>{{ evento.nombre }}</h2>
+  <p><b>Fecha y Hora:</b> {{ evento.fechaHoraInicio | date:'fullDate' }} - {{ evento.fechaHoraFin | date:'shortTime' }}</p>
+  <p><b>Tipo:</b> {{ evento.tipo }}</p>
+  <p *ngIf="evento.enlaceStreaming"><b>Enlace de Streaming:</b> <a href="{{ evento.enlaceStreaming }}">{{ evento.enlaceStreaming }}</a></p>
+  <p *ngIf="evento.direccion"><b>Dirección:</b> {{ evento.direccion }}</p>
+  <p><b>Capacidad:</b> {{ evento.capacidad }}</p>
+  <p *ngIf="evento.descripcionGeneral"><b>Descripción:</b> {{ evento.descripcionGeneral }}</p>
+</div>
+<p>evento-detalle works!</p>

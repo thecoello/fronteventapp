@@ -1,26 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { RegistroUsuarioComponent } from './components/usuarios/registro-usuario/registro-usuario.component';
-import { HomeComponent } from './components/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RecuperarPasswordComponent } from './components/usuarios/recuperar-password/recuperar-password.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { CreacioneventoComponent } from './components/eventos/creacionevento/creacionevento.component';
+import { RegistroUsuarioComponent } from './components/usuarios/registro-usuario/registro-usuario.component';
+import { RecuperarPasswordComponent } from './components/usuarios/recuperar-password/recuperar-password.component';
 import { EdicionUsuarioComponent } from './components/usuarios/edicion-usuario/edicion-usuario.component';
+import { CreacioneventoComponent } from './components/eventos/creacionevento/creacionevento.component';
+import { EventoDetalleComponent } from './components/eventos/evento-detalle/evento-detalle.component';
+import { EventoListarComponent } from './components/eventos/evento-listar/evento-listar.component';
+import { EliminarUsuarioComponent } from './components/usuarios/eliminar-usuario/eliminar-usuario.component';
+
+import { EventService } from './services/event.service';
+import { UserAdminService } from './services/user-admin.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroUsuarioComponent,
     HomeComponent,
-    RecuperarPasswordComponent,
     NavigationComponent,
+    RegistroUsuarioComponent,
+    RecuperarPasswordComponent,
+    EdicionUsuarioComponent,
     CreacioneventoComponent,
-    EdicionUsuarioComponent
+    EventoDetalleComponent,
+    EventoListarComponent,
+    EliminarUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,10 @@ import { EdicionUsuarioComponent } from './components/usuarios/edicion-usuario/e
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    EventService,
+    UserAdminService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
