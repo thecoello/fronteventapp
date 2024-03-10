@@ -40,12 +40,30 @@ export class ResetearpasswordComponent implements OnInit {
       this.changinPassword = true
       this.modelPassword = recuperarContrasena.value
 
-      console.log(this.modelPassword)
-
       if(this.modelPassword.password){
 
         if(this.modelPassword.password == this.modelPassword.repeatPassword){
-          alert("ok")
+          this.userAdminService.resetPassword(this.modelPassword.password, this.token).subscribe((response) =>{
+
+            console.log(response)
+            setTimeout(() => {
+                this.changinPassword = false
+                this.recupPassKo = ""
+                this.recupPassOk = "Contraseña cambiada"
+                this.modelPassword = new Password()
+            }, 1000)
+    
+          },
+          (error)=>{
+    
+            setTimeout(() => {
+              this.changinPassword = false
+              this.recupPassOk = ""
+              this.recupPassKo = error.error
+            }, 1000);
+         
+          }
+          )
         }
        
       }else{
