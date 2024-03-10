@@ -1,10 +1,18 @@
 <div *ngIf="evento">
-  <h2>{{ evento.nombre }}</h2>
-  <p><b>Fecha y Hora:</b> {{ evento.fechaHoraInicio | date:'fullDate' }} - {{ evento.fechaHoraFin | date:'shortTime' }}</p>
-  <p><b>Tipo:</b> {{ evento.tipo }}</p>
-  <p *ngIf="evento.enlaceStreaming"><b>Enlace de Streaming:</b> <a href="{{ evento.enlaceStreaming }}">{{ evento.enlaceStreaming }}</a></p>
+  <h2>{{ evento.nombreEvento }}</h2>
+  <!-- Usando el pipe date solamente si fechaInicio y fechaFinal están definidos -->
+  <p *ngIf="evento.fechaInicio && evento.fechaFinal">
+    <b>Fecha y Hora:</b> 
+    {{ evento.fechaInicio | date:'fullDate' }} a las {{ evento.horeIncio }}
+    -
+    {{ evento.fechaFinal | date:'fullDate' }} a las {{ evento.horeFinal }}
+  </p>
+  <p><b>Tipo:</b> {{ evento.tipoEvento }}</p>
+  <p *ngIf="evento.enlaceStreaming">
+    <b>Enlace de Streaming:</b> 
+    <a href="{{ evento.enlaceStreaming }}">{{ evento.enlaceStreaming }}</a>
+  </p>
   <p *ngIf="evento.direccion"><b>Dirección:</b> {{ evento.direccion }}</p>
-  <p><b>Capacidad:</b> {{ evento.capacidad }}</p>
-  <p *ngIf="evento.descripcionGeneral"><b>Descripción:</b> {{ evento.descripcionGeneral }}</p>
+  <p><b>Capacidad:</b> {{ evento.capacidadEvento }}</p>
+  <p *ngIf="evento.descripcion"><b>Descripción:</b> {{ evento.descripcion }}</p>
 </div>
-<p>evento-detalle works!</p>

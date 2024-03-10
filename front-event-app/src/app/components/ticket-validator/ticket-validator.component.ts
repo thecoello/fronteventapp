@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TicketService } from '../services/ticket.service';
+import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
   selector: 'app-ticket-validator',
@@ -9,13 +9,9 @@ import { TicketService } from '../services/ticket.service';
 export class TicketValidatorComponent {
   ticketCode: string = '';
 
-  constructor(private ticketService: TicketService) { }
+  constructor(private ticketService: TicketService) {}
 
   validateTicket(): void {
-    if (!this.ticketCode) {
-      alert('Por favor, ingresa un código de ticket.');
-      return;
-    }
     this.ticketService.validateTicket(this.ticketCode).subscribe(
       (response) => {
         alert(response);
@@ -24,5 +20,10 @@ export class TicketValidatorComponent {
         alert('Error al validar el ticket: ' + error.message);
       }
     );
+  }
+
+  handleQrCodeResult(resultString: string): void {
+    this.ticketCode = resultString; // Asigna el resultado a ticketCode
+    this.validateTicket(); // Llama automáticamente a validar el ticket
   }
 }

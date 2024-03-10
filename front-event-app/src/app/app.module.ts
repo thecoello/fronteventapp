@@ -19,6 +19,8 @@ import { EventService } from './services/event.service';
 import { UserAdminService } from './services/user-admin.service';
 import { TicketValidatorComponent } from './components/ticket-validator/ticket-validator.component';
 
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import { TicketValidatorComponent } from './components/ticket-validator/ticket-v
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ZXingScannerModule,
     FormsModule
   ],
   providers: [

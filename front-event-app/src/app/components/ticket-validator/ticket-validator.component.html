@@ -1,4 +1,7 @@
-<div class="ticket-validator">
-  <input type="text" [(ngModel)]="ticketCode" placeholder="Código de Ticket" />
+<div>
+  <input [(ngModel)]="ticketCode" type="text" placeholder="Ingrese código del ticket">
   <button (click)="validateTicket()">Validar Ticket</button>
+  
+  <!-- Componente del escáner de códigos QR -->
+  <zxing-scanner [formats]="['QR_CODE']" (scanSuccess)="handleQrCodeResult($event)"></zxing-scanner>
 </div>

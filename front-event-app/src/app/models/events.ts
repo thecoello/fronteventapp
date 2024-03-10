@@ -1,18 +1,18 @@
 import { Zones } from "./zones"
 
 export class Event {
-    image?: String
-    nombreEvento?: String
-    tipoEvento?: String
-    descripcion?: String
-    fechaInicio?: String
-    horeIncio?:String
-    fechaFinal?: String
-    horeFinal?: String
-    enlaceStreaming?: String
-    capacidadEvento?: Number
-    direccion?: String
+    image?: string
+    nombreEvento?: string
+    tipoEvento?: string
+    descripcion?: string
+    fechaInicio?: string
+    horeIncio?:string
+    fechaFinal?: string
+    horeFinal?: string
+    enlaceStreaming?: string
+    capacidadEvento?: number
+    direccion?: string
     zonas?: Array<Zones>
-    imageMapaZona?: String
+    imageMapaZona?: string
 }
 
