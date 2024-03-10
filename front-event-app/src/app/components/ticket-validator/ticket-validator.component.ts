@@ -5,10 +5,10 @@ import { TicketService } from 'src/app/services/ticket.service';
 @Component({
   selector: 'app-ticket-validator',
   templateUrl: './ticket-validator.component.html',
-  styleUrls: ['./ticket-validator.component.css']
+  styleUrls: ['./ticket-validator.component.scss']
 })
 export class TicketValidatorComponent {
-  ticketCode: string = '';
+  ticketCode: string = ''; 
   allowedFormats = [BarcodeFormat.QR_CODE];
 
   constructor(private ticketService: TicketService) {}
