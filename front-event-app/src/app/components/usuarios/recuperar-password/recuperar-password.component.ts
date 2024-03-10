@@ -20,10 +20,10 @@ export class RecuperarPasswordComponent {
   constructor(private userAdminService: UserAdminService, private router: Router) { }
 
 
-  onSubmit(registroUsuario: NgForm, event: any): void {
+  onSubmit(recuperarContrasena: NgForm, event: any): void {
 
       this.creatingUser = true
-      this.modelUserAdmin = registroUsuario.value
+      this.modelUserAdmin = recuperarContrasena.value
 
       if(this.modelUserAdmin.email){
         this.userAdminService.forgotPassword(this.modelUserAdmin.email).subscribe((response) =>{
