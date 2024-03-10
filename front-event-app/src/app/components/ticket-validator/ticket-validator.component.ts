@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BarcodeFormat } from '@zxing/library'; // Importa BarcodeFormat
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
@@ -8,10 +9,15 @@ import { TicketService } from 'src/app/services/ticket.service';
 })
 export class TicketValidatorComponent {
   ticketCode: string = '';
+  allowedFormats = [BarcodeFormat.QR_CODE];
 
   constructor(private ticketService: TicketService) {}
 
   validateTicket(): void {
+    if (!this.ticketCode) {
+      alert('Por favor, ingresa un código de ticket.');
+      return;
+    }
     this.ticketService.validateTicket(this.ticketCode).subscribe(
       (response) => {
         alert(response);
@@ -23,7 +29,7 @@ export class TicketValidatorComponent {
   }
 
   handleQrCodeResult(resultString: string): void {
-    this.ticketCode = resultString; // Asigna el resultado a ticketCode
-    this.validateTicket(); // Llama automáticamente a validar el ticket
+    this.ticketCode = resultString;
+    this.validateTicket();
   }
 }

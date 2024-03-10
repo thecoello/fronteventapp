@@ -1,6 +1,5 @@
 <div *ngIf="evento">
   <h2>{{ evento.nombreEvento }}</h2>
-  <!-- Usando el pipe date solamente si fechaInicio y fechaFinal están definidos -->
   <p *ngIf="evento.fechaInicio && evento.fechaFinal">
     <b>Fecha y Hora:</b> 
     {{ evento.fechaInicio | date:'fullDate' }} a las {{ evento.horeIncio }}

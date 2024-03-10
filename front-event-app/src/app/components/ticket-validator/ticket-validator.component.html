@@ -3,5 +3,5 @@
   <button (click)="validateTicket()">Validar Ticket</button>
   
   <!-- Componente del escáner de códigos QR -->
-  <zxing-scanner [formats]="['QR_CODE']" (scanSuccess)="handleQrCodeResult($event)"></zxing-scanner>
+  <zxing-scanner [formats]="allowedFormats" (scanSuccess)="handleQrCodeResult($event)"></zxing-scanner>
 </div>
