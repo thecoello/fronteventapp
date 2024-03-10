@@ -17,7 +17,7 @@ import { EliminarUsuarioComponent } from './components/usuarios/eliminar-usuario
 
 import { EventService } from './services/event.service';
 import { UserAdminService } from './services/user-admin.service';
-import { TicketValidatorComponent } from './components/ticket-validator/ticket-validator.component';
+import { TicketValidatorComponent } from './components/eventos/ticket-validator/ticket-validator.component';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
