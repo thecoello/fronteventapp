@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BarcodeFormat } from '@zxing/library'; // Importa BarcodeFormat
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
@@ -9,7 +8,6 @@ import { TicketService } from 'src/app/services/ticket.service';
 })
 export class TicketValidatorComponent {
   ticketCode: string = ''; 
-  allowedFormats = [BarcodeFormat.QR_CODE];
 
   constructor(private ticketService: TicketService) {}
 

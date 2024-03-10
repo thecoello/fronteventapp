@@ -14,13 +14,13 @@ import { CreacioneventoComponent } from './components/eventos/creacionevento/cre
 import { EventoDetalleComponent } from './components/eventos/evento-detalle/evento-detalle.component';
 import { EventoListarComponent } from './components/eventos/evento-listar/evento-listar.component';
 import { EliminarUsuarioComponent } from './components/usuarios/eliminar-usuario/eliminar-usuario.component';
-import { EventoEdicionComponent } from './components/evento-edicion/evento-edicion.component';
+import { EventoEdicionComponent } from './components/eventos/evento-edicion/evento-edicion.component';
 
 import { EventService } from './services/event.service';
 import { UserAdminService } from './services/user-admin.service';
-import { TicketValidatorComponent } from './components/ticket-validator/ticket-validator.component';
+import { TicketValidatorComponent } from './components/eventos/ticket-validator/ticket-validator.component';
 
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
 
 
 @NgModule({
@@ -36,13 +36,16 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     EventoListarComponent,
     EliminarUsuarioComponent,
     TicketValidatorComponent,
+<<<<<<< HEAD
     EventoEdicionComponent
+=======
+    ResetearpasswordComponent
+>>>>>>> 7ef387b8dcbec653f3edebe88e41f75e41ac2e4d
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ZXingScannerModule,
     FormsModule
   ],
   providers: [
