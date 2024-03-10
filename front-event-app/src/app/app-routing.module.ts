@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RecuperarPasswordComponent } from './components/usuarios/recuperar-password/recuperar-password.component';
 import { CreacioneventoComponent } from './components/eventos/creacionevento/creacionevento.component';
 import { EventoDetalleComponent } from './components/eventos/evento-detalle/evento-detalle.component';
+import { DetalleUsuarioComponent } from './components/usuarios/detalle-usuario/detalle-usuario.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'recuperarcontrasena', component: RecuperarPasswordComponent },
   { path: 'crearevento', component: CreacioneventoComponent },
   { path: 'detalleevento/:id', component: EventoDetalleComponent },
+  { path: 'detalleusuario', component: DetalleUsuarioComponent },
+
 ];
 
 @NgModule({

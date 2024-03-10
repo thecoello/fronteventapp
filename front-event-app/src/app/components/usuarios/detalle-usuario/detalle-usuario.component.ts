@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { UserAdmin } from 'src/app/models/users';
+import { UserAdmin } from '../../../models/users';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-detalle-usuario',
@@ -11,7 +12,7 @@ export class DetalleUsuarioComponent {
 
   constructor() { }
 
-  actualizarInformacion() {
+  actualizarInformacion(detalleUsuario: NgForm) {
     console.log('Información actualizada:', this.modelUserAdmin);
   }
 
