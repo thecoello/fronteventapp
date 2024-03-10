@@ -20,6 +20,7 @@ import { UserAdminService } from './services/user-admin.service';
 import { TicketValidatorComponent } from './components/eventos/ticket-validator/ticket-validator.component';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     EventoDetalleComponent,
     EventoListarComponent,
     EliminarUsuarioComponent,
-    TicketValidatorComponent
+    TicketValidatorComponent,
+    ResetearpasswordComponent
   ],
   imports: [
     BrowserModule,
