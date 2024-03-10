@@ -6,11 +6,13 @@ import { RecuperarPasswordComponent } from './components/usuarios/recuperar-pass
 import { CreacioneventoComponent } from './components/eventos/creacionevento/creacionevento.component';
 import { EventoDetalleComponent } from './components/eventos/evento-detalle/evento-detalle.component';
 import { DetalleUsuarioComponent } from './components/usuarios/detalle-usuario/detalle-usuario.component';
+import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'registro', component: RegistroUsuarioComponent },
   { path: 'recuperarcontrasena', component: RecuperarPasswordComponent },
+  { path: 'resetearcontrasena', component: ResetearpasswordComponent },
   { path: 'crearevento', component: CreacioneventoComponent },
   { path: 'detalleevento/:id', component: EventoDetalleComponent },
   { path: 'detalleusuario', component: DetalleUsuarioComponent },
