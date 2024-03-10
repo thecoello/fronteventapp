@@ -19,6 +19,7 @@ import { EventService } from './services/event.service';
 import { UserAdminService } from './services/user-admin.service';
 import { TicketValidatorComponent } from './components/eventos/ticket-validator/ticket-validator.component';
 import { DetalleUsuarioComponent } from './components/usuarios/detalle-usuario/detalle-usuario.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DetalleUsuarioComponent } from './components/usuarios/detalle-usuario/d
     EliminarUsuarioComponent,
     TicketValidatorComponent,
     DetalleUsuarioComponent,
+    LoginComponent,
  ],
   imports: [
     BrowserModule,
