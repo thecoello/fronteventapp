@@ -1,5 +1,5 @@
 export class UserAdmin {
-    id?: String
+    id?: number
     nombre?: String
     apellido?: String
     email?: String

@@ -1,14 +1,15 @@
 import { Zones } from "./zones"
 
 export class Event {
+    id?: number
     image?: string
     nombreEvento?: string
     tipoEvento?: string
     descripcion?: string
     fechaInicio?: string
-    horeIncio?:string
+    horaIncio?:string
     fechaFinal?: string
-    horeFinal?: string
+    horaFinal?: string
     enlaceStreaming?: string
     capacidadEvento?: number
     direccion?: string

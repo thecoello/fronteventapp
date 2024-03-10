@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserAdminService } from 'src/app/services/user-admin.service';
-import { UserAdmin } from 'src/app/models/user-admin'; 
+import { UserAdmin } from 'src/app/models/users';
 
 @Component({
   selector: 'app-eliminar-usuario',
@@ -18,15 +18,15 @@ export class EliminarUsuarioComponent implements OnInit {
   }
 
   updateUser(): void {
-    this.userAdminService.updateUser(this.user).subscribe({
-      next: (response) => {
+    /*this.userAdminService.updateUser(this.user).subscribe({
+      next: (response: any) => {
         this.message = 'Usuario actualizado con éxito.';
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Error al actualizar el usuario:', error);
         this.message = 'Error al actualizar el usuario.';
       }
-    });
+    });*/
   }
 
   deleteUser(): void {

@@ -2,9 +2,9 @@
   <h2>{{ evento.nombreEvento }}</h2>
   <p *ngIf="evento.fechaInicio && evento.fechaFinal">
     <b>Fecha y Hora:</b> 
-    {{ evento.fechaInicio | date:'fullDate' }} a las {{ evento.horeIncio }}
+    {{ evento.fechaInicio | date:'fullDate' }} a las {{ evento.horaIncio }}
     -
-    {{ evento.fechaFinal | date:'fullDate' }} a las {{ evento.horeFinal }}
+    {{ evento.fechaFinal | date:'fullDate' }} a las {{ evento.horaFinal }}
   </p>
   <p><b>Tipo:</b> {{ evento.tipoEvento }}</p>
   <p *ngIf="evento.enlaceStreaming">
