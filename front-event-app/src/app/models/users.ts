@@ -9,3 +9,8 @@ export class UserAdmin {
     resetPasswordToken?: String
     userRole?: String
 }
+
+export class Password{
+    password?: string
+    repeatPassword?: string
+  }
