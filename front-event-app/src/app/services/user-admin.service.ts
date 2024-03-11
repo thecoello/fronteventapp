@@ -31,4 +31,8 @@ export class UserAdminService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
+
+  getUser(id?: Number):Observable<any>{
+    return this.httpClient.get<UserAdmin>(`${this.url}/users/${id}`)
+  }
 }
