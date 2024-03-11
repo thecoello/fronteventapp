@@ -20,6 +20,7 @@ import { UserAdminService } from './services/user-admin.service';
 import { TicketValidatorComponent } from './components/eventos/ticket-validator/ticket-validator.component';
 import { DetalleUsuarioComponent } from './components/usuarios/detalle-usuario/detalle-usuario.component';
 import { LoginComponent } from './components/login/login.component';
+import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LoginComponent } from './components/login/login.component';
     NavigationComponent,
     RegistroUsuarioComponent,
     RecuperarPasswordComponent,
+    ResetearpasswordComponent,
     EdicionUsuarioComponent,
     CreacioneventoComponent,
     EventoDetalleComponent,
@@ -35,7 +37,8 @@ import { LoginComponent } from './components/login/login.component';
     EliminarUsuarioComponent,
     TicketValidatorComponent,
     DetalleUsuarioComponent,
-    LoginComponent,
+    LoginComponent
+    
  ],
   imports: [
     BrowserModule,

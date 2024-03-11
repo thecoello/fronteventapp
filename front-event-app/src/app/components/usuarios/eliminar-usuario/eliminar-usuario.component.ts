@@ -17,18 +17,6 @@ export class EliminarUsuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateUser(): void {
-    /*this.userAdminService.updateUser(this.user).subscribe({
-      next: (response: any) => {
-        this.message = 'Usuario actualizado con éxito.';
-      },
-      error: (error: any) => {
-        console.error('Error al actualizar el usuario:', error);
-        this.message = 'Error al actualizar el usuario.';
-      }
-    });*/
-  }
-
   deleteUser(): void {
     this.userAdminService.deleteUser(this.user.id).subscribe({
       next: (response) => {
