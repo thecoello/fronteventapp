@@ -18,7 +18,6 @@ import { EliminarUsuarioComponent } from './components/usuarios/eliminar-usuario
 import { EventService } from './services/event.service';
 import { UserAdminService } from './services/user-admin.service';
 import { TicketValidatorComponent } from './components/eventos/ticket-validator/ticket-validator.component';
-import { DetalleUsuarioComponent } from './components/usuarios/detalle-usuario/detalle-usuario.component';
 import { LoginComponent } from './components/login/login.component';
 import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
 
@@ -36,7 +35,6 @@ import { ResetearpasswordComponent } from './components/usuarios/resetear-passwo
     EventoListarComponent,
     EliminarUsuarioComponent,
     TicketValidatorComponent,
-    DetalleUsuarioComponent,
     LoginComponent
     
  ],
