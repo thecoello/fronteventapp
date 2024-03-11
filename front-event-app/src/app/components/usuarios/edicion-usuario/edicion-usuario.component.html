@@ -1,9 +1,12 @@
-<div class="row justify-content-center align-items-center h-100">
-    <div class="col-4"></div>
+<div class="row h-100">
 
-    <div class="col-3">
+  <div class="row">
 
-        <h1 class="title-caveat text-center">Regístrate aquí</h1>
+      <div class="col-1">
+      </div>
+
+      <div class="col-5  d-flex justify-content-center flex-column">
+        <h1 class="title-caveat text-center">Editar usuario</h1>
 
         <form #registroUsuario="ngForm" (ngSubmit)="onSubmit(registroUsuario, $event)" class="{{inputsValidate? 'was-validated' : 'needs-validation'}}" >
             <div class="mb-3 form-group">
@@ -26,15 +29,12 @@
                 <label for="password" class="form-label m-0 p-0">Password *</label>
                 <input  type="password" class="form-control" id="password" aria-describedby="password" name="password" [(ngModel)]="modelUserAdmin.password" required>
             </div>
-            <div class="mb-3 form-check">
-                <input  type="checkbox" class="form-check-input" name="userTerms" id="userTerms" [(ngModel)]="modelUserAdmin.userTerms" required>
-                <label  class="form-check-label" for="userTerms">Acepto <a href="http://" target="_blank" rel="noopener noreferrer">condiciones y terminos de uso *</a></label>
-              </div>
-
-
-        
+              
               <div *ngIf="!creatingUser" class="d-grid gap-2 pt-2">
-                <button type="submit" class="btn btn-black p-2 rounded-3">Regsitrarse </button>
+                <button type="submit" class="btn btn-black p-2 rounded-3">Editar usuario </button>
+
+                <app-eliminar-usuario></app-eliminar-usuario>
+
               </div>
 
               <div *ngIf="creatingUser" class="d-grid gap-2 pt-2 justify-content-center align-items-center">
@@ -51,12 +51,19 @@
                 {{registerStatusKo}}
 
               </div>
+
         
-              <div class="mb-3 form-check text-center  pt-4">
-                <p>¿Ya tienes una cuenta? <a href="http://" target="_blank" rel="noopener noreferrer">Inicia sesión</a></p>
-              </div>
+      
         </form>
     </div>
 
-    <div class="col-4"></div>
+      <div class="col-5">
+      </div>
+
+
+
+      <div class="col-1"></div>
+      
+  </div>
+
 </div>
