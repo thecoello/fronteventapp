@@ -7,6 +7,7 @@ import { CreacioneventoComponent } from './components/eventos/creacionevento/cre
 import { EventoDetalleComponent } from './components/eventos/evento-detalle/evento-detalle.component';
 import { DetalleUsuarioComponent } from './components/usuarios/detalle-usuario/detalle-usuario.component';
 import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'crearevento', component: CreacioneventoComponent },
   { path: 'detalleevento/:id', component: EventoDetalleComponent },
   { path: 'detalleusuario', component: DetalleUsuarioComponent },
+  { path: 'login', component: LoginComponent },
+
 
 ];
 
