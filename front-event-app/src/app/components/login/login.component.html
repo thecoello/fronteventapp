@@ -3,23 +3,31 @@
 
     <div class="col-3">
 
-        <h1 class="title-caveat text-center">Inicia Sesion</h1>
+        <h1 class="title-caveat text-center">Login</h1>
 
         <form #loginadmin="ngForm">
             <div class="mb-3 form-group">
-                <label for="email" class="form-label m-0 p-0 m-0 p-0">Email *</label>
+                <label for="email" class="form-label m-0 p-0 m-0 p-0">Email </label>
                 <input  type="text" class="form-control" id="email" aria-describedby="email" name="email" [(ngModel)]="modelUserAdmin.email" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label m-0 p-0">Contraseña *</label>
+                <label for="password" class="form-label m-0 p-0">Contraseña </label>
                 <input  type="password" class="form-control" id="password" aria-describedby="password" name="password" [(ngModel)]="modelUserAdmin.password"  required>
             </div>
+            <div class="mb-3">
+                <a href="http://" target="_blank" rel="noopener noreferrer">Recuperar Contraseña</a>
+
+            </div>
+
+            <div class="d-grid gap-2 pt-2">
+                <button type="submit" class="btn btn-black p-2 rounded-3">Inicia Sesion </button>
+              </div>
         </form>
 
+        <div class="mb-3 form-check text-center  pt-4">
+            <p>¿Aun no estas registrado? <a href="http://" target="_blank" rel="noopener noreferrer">Regístrate aquí</a></p>
+          </div>
 
-        <!--Boton para acceder a la sesion-->
-        <button type="submit" class="btn btn-primary">Login</button>
-            
     </div>
 
     <div class="col-4"></div>
