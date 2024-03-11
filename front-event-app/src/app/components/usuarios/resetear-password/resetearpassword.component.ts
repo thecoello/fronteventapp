@@ -51,6 +51,11 @@ export class ResetearpasswordComponent implements OnInit {
                 this.recupPassKo = ""
                 this.recupPassOk = "Contraseña cambiada"
                 this.modelPassword = new Password()
+
+                setTimeout(() => {
+                  this.router.navigate(['/login'])
+                }, 2000);
+                
             }, 1000)
     
           },
@@ -64,6 +69,9 @@ export class ResetearpasswordComponent implements OnInit {
          
           }
           )
+        }else{
+          this.changinPassword = false
+          this.inputsValidate = true
         }
        
       }else{
