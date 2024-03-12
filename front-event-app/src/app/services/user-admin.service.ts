@@ -35,4 +35,9 @@ export class UserAdminService {
   getUser(id?: Number):Observable<any>{
     return this.httpClient.get<UserAdmin>(`${this.url}/users/${id}`)
   }
+
+  putUser(id?: Number, body?: UserAdmin):Observable<any>{
+    const headers = new HttpHeaders({'accept': 'application/json'})
+    return this.httpClient.post<UserAdmin>(`${this.url}/users`,body, {headers})
+  }
 }
