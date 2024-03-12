@@ -13,9 +13,9 @@ import {AbstractControl, ValidatorFn} from '@angular/forms';
 export class EdicionUsuarioComponent implements OnInit {
 
   modelUserAdmin: UserAdmin = new UserAdmin()
-  creatingUser: boolean = false
-  registerStatusOk?: string
-  registerStatusKo?: string
+  editUser: boolean = false
+  editStatusOk?: string
+  editStatusKo?: string
   inputsValidate?: boolean = false
 
   constructor(private userAdminService: UserAdminService, private router: Router) { }
@@ -29,24 +29,24 @@ export class EdicionUsuarioComponent implements OnInit {
       console.log(error)
 
       setTimeout(() => {
-        this.creatingUser = false
-        this.registerStatusOk = ""
-        this.registerStatusKo = error.error
+        this.editUser = false
+        this.editStatusOk = ""
+        this.editStatusKo = error.error
       }, 1000);})
   }
 
-  onSubmit(registroUsuario: NgForm, event: any): void {
+  onSubmit(edicionUsuario: NgForm, event: any): void {
 
-      this.creatingUser = true
-      this.modelUserAdmin = registroUsuario.value
+      this.editUser = true
+      this.modelUserAdmin = edicionUsuario.value
 
       if(this.modelUserAdmin.nombre && this.modelUserAdmin.apellido && this.modelUserAdmin.email && this.modelUserAdmin.usuario && this.modelUserAdmin.password && this.modelUserAdmin.userTerms){
-        this.userAdminService.postUser(this.modelUserAdmin).subscribe((response) =>{
+        this.userAdminService.putUser(1,this.modelUserAdmin).subscribe((response) =>{
 
           setTimeout(() => {
-              this.creatingUser = false
-              this.registerStatusKo = ""
-              this.registerStatusOk = "Registro completado"
+              this.editUser = false
+              this.editStatusKo = ""
+              this.editStatusOk = "Usuario actualizado"
               this.modelUserAdmin = new UserAdmin()
           }, 1000)
   
@@ -55,15 +55,15 @@ export class EdicionUsuarioComponent implements OnInit {
           console.log(error)
   
           setTimeout(() => {
-            this.creatingUser = false
-            this.registerStatusOk = ""
-            this.registerStatusKo = error.error
+            this.editUser = false
+            this.editStatusOk = ""
+            this.editStatusKo = error.error
           }, 1000);
        
         }
         )
       }else{
-        this.creatingUser = false
+        this.editUser = false
         this.inputsValidate = true
       }
     
