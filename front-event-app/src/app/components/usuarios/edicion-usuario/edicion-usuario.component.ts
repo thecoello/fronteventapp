@@ -23,16 +23,8 @@ export class EdicionUsuarioComponent implements OnInit {
     this.userAdminService.getUser(1).subscribe((response) =>{
    
     this.modelUserAdmin = response
-    console.log(this.modelUserAdmin)
-    },
-    (error)=>{
-      console.log(error)
-
-      setTimeout(() => {
-        this.editUser = false
-        this.editStatusOk = ""
-        this.editStatusKo = error.error
-      }, 1000);})
+  
+    })
   }
 
   onSubmit(edicionUsuario: NgForm, event: any): void {
@@ -40,7 +32,7 @@ export class EdicionUsuarioComponent implements OnInit {
       this.editUser = true
       this.modelUserAdmin = edicionUsuario.value
 
-      if(this.modelUserAdmin.nombre && this.modelUserAdmin.apellido && this.modelUserAdmin.email && this.modelUserAdmin.usuario && this.modelUserAdmin.password){
+      if(this.modelUserAdmin.nombre && this.modelUserAdmin.apellido && this.modelUserAdmin.email && this.modelUserAdmin.usuario){
         this.userAdminService.putUser(1,this.modelUserAdmin).subscribe((response) =>{
 
           setTimeout(() => {

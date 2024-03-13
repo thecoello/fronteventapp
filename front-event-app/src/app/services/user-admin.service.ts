@@ -38,6 +38,6 @@ export class UserAdminService {
 
   putUser(id?: Number, body?: UserAdmin):Observable<any>{
     const headers = new HttpHeaders({'accept': 'application/json'})
-    return this.httpClient.put<UserAdmin>(`${this.url}/users`,body, {headers})
+    return this.httpClient.put<UserAdmin>(`${this.url}/users/${id}`,body, {headers})
   }
 }
