@@ -11,13 +11,10 @@ import { RegistroUsuarioComponent } from './components/usuarios/registro-usuario
 import { RecuperarPasswordComponent } from './components/usuarios/recuperar-password/recuperar-password.component';
 import { EdicionUsuarioComponent } from './components/usuarios/edicion-usuario/edicion-usuario.component';
 import { CreacioneventoComponent } from './components/eventos/creacionevento/creacionevento.component';
-import { EventoDetalleComponent } from './components/eventos/evento-detalle/evento-detalle.component';
-import { EventoListarComponent } from './components/eventos/evento-listar/evento-listar.component';
 import { EliminarUsuarioComponent } from './components/usuarios/eliminar-usuario/eliminar-usuario.component';
 
 import { EventService } from './services/event.service';
 import { UserAdminService } from './services/user-admin.service';
-import { TicketValidatorComponent } from './components/eventos/ticket-validator/ticket-validator.component';
 import { LoginComponent } from './components/login/login.component';
 import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
 
@@ -31,10 +28,7 @@ import { ResetearpasswordComponent } from './components/usuarios/resetear-passwo
     ResetearpasswordComponent,
     EdicionUsuarioComponent,
     CreacioneventoComponent,
-    EventoDetalleComponent,
-    EventoListarComponent,
     EliminarUsuarioComponent,
-    TicketValidatorComponent,
     LoginComponent
     
  ],
