@@ -39,7 +39,6 @@ export class EdicionUsuarioComponent implements OnInit {
               this.editUser = false
               this.editStatusKo = ""
               this.editStatusOk = "Usuario actualizado"
-              this.modelUserAdmin = new UserAdmin()
           }, 1000)
   
         },
