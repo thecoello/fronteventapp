@@ -40,7 +40,7 @@ export class EdicionUsuarioComponent implements OnInit {
       this.editUser = true
       this.modelUserAdmin = edicionUsuario.value
 
-      if(this.modelUserAdmin.nombre && this.modelUserAdmin.apellido && this.modelUserAdmin.email && this.modelUserAdmin.usuario && this.modelUserAdmin.password){
+      if(this.modelUserAdmin.nombre && this.modelUserAdmin.apellido && this.modelUserAdmin.email && this.modelUserAdmin.usuario){
         this.userAdminService.putUser(1,this.modelUserAdmin).subscribe((response) =>{
 
           setTimeout(() => {
