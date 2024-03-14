@@ -5,7 +5,7 @@
 
         <h1 class="title-caveat text-center">Login</h1>
 
-        <form #loginadmin="ngForm">
+        <form #loginadmin="ngForm" class="{{inputsValidate? 'was-validated' : 'needs-validation'}}">
             <div class="mb-3 form-group">
                 <label for="email" class="form-label m-0 p-0 m-0 p-0">Email </label>
                 <input  type="text" class="form-control" id="email" aria-describedby="email" name="email" [(ngModel)]="modelUserAdmin.email" required>
