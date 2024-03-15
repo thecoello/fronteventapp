@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent {
   modelUserAdmin: UserAdmin = new UserAdmin()
   inputsValidate?: boolean = false
@@ -16,6 +17,15 @@ export class LoginComponent {
   constructor(private userAdminService: UserAdminService, private router: Router) { }
 
 
-  loginadmin(LoginComponent: NgForm){}
+  onSubmit(login: NgForm, event: any): void {
+
+  if(this.modelUserAdmin.email && this.modelUserAdmin.password){
+
+    //SI TIENE TODO PASSWORD Y CONTRASEÑA AQUÍ VA EL CÓDIGO DEL SERVICIO PARA HACER EL LOGIN
+
+  }else{
+    this.inputsValidate = true
   }
+}
+}
 
