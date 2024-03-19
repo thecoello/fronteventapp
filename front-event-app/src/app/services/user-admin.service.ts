@@ -40,4 +40,8 @@ export class UserAdminService {
     const headers = new HttpHeaders({'accept': 'application/json'})
     return this.httpClient.put<UserAdmin>(`${this.url}/users/${id}`,body, {headers})
   }
+
+  deleteUserAndEvents(email: string, confirmEmail: string): Observable<any> {
+    return this.httpClient.post(`${this.url}/users/delete/confirm`, { email, confirmEmail }, { responseType: 'text' });
+  }
 }

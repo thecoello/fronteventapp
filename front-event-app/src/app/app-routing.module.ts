@@ -7,6 +7,7 @@ import { CreacioneventoComponent } from './components/eventos/creacionevento/cre
 import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
 import { LoginComponent } from './components/login/login.component';
 import { EdicionUsuarioComponent } from './components/usuarios/edicion-usuario/edicion-usuario.component';
+import { EliminarUsuarioComponent } from './components//usuarios/eliminar-usuario/eliminar-usuario.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'crearevento', component: CreacioneventoComponent },
   { path: 'editarusuario', component: EdicionUsuarioComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'eliminar-usuario', component: EliminarUsuarioComponent },
 ];
 
 @NgModule({
