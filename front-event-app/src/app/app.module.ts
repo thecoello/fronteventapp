@@ -17,6 +17,7 @@ import { EventService } from './services/event.service';
 import { UserAdminService } from './services/user-admin.service';
 import { LoginComponent } from './components/login/login.component';
 import { ResetearpasswordComponent } from './components/usuarios/resetear-password/resetearpassword.component';
+import { ListadoEventoComponent } from './components/eventos/listado-evento/listado-evento.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ResetearpasswordComponent } from './components/usuarios/resetear-passwo
     EdicionUsuarioComponent,
     CreacioneventoComponent,
     EliminarUsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    ListadoEventoComponent
     
  ],
   imports: [
