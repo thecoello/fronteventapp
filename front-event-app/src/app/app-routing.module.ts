@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { EdicionUsuarioComponent } from './components/usuarios/edicion-usuario/edicion-usuario.component';
 import { EliminarUsuarioComponent } from './components//usuarios/eliminar-usuario/eliminar-usuario.component';
 import { ListadoEventoComponent } from './components/eventos/listado-evento/listado-evento.component';
+import { EditarEventoComponent } from './components/eventos/editar-evento/editar-evento.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'eliminar-usuario', component: EliminarUsuarioComponent },
   { path: 'listadoevento', component: ListadoEventoComponent },
+  { path: 'editarevento', component: EditarEventoComponent },
 
 ];
 

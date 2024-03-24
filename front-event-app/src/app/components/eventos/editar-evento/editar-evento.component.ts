@@ -6,11 +6,11 @@ import { Zones } from 'src/app/models/zones';
 import { EventService } from 'src/app/services/event.service';
 
 @Component({
-  selector: 'app-creacionevento',
-  templateUrl: './creacionevento.component.html',
-  styleUrls: ['./creacionevento.component.scss']
+  selector: 'app-editar-evento',
+  templateUrl: './editar-evento.component.html',
+  styleUrls: ['./editar-evento.component.scss']
 })
-export class CreacioneventoComponent implements OnInit {
+export class EditarEventoComponent {
 
   modelEvento: Event = new Event()
   allZones: Array<Zones> = []
@@ -126,5 +126,4 @@ export class CreacioneventoComponent implements OnInit {
         this.inputsValidate = true
       }
     }
-  
 }

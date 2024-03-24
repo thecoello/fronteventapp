@@ -1,0 +1,184 @@
+<div class="row w-100">
+
+    <div class="col-1">
+    </div>
+
+    <div class="col-5">
+        <h3>Editar evento</h3>
+
+        <hr>
+
+        <div *ngIf="registerStatusOk" class="alert alert-success mt-4" role="alert">
+            {{registerStatusOk}}
+          </div>
+
+          <div *ngIf="registerStatusKo" class="alert alert-danger mt-4" role="alert">
+            {{registerStatusKo}}
+
+          </div>
+
+        <form #registroEvento="ngForm" (ngSubmit)="onSubmit(registroEvento, $event)"
+            class="{{inputsValidate? 'was-validated' : 'needs-validation'}}">
+            <div class="mb-3 form-group">
+                <label for="image" class="form-label m-0 p-0 m-0 p-0">Banner Evento</label>
+                <input (change)="imageFile = $event" type="file" class="form-control" id="image"
+                    aria-describedby="image" name="image" required>
+                <div class="form-text"> (Imágen jpg, jpeg, png | Tamaño máximo: 1mb | Dimensión: 1000px x 1000px )</div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="nombre" class="form-label m-0 p-0 m-0 p-0">Nombre de evento *</label>
+                        <input placeholder="Exposición de arte" type="text" class="form-control" id="nombre"
+                            aria-describedby="nombre" name="nombre" [(ngModel)]="modelEvento.nombre"
+                            required>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="tipoEvento" class="form-label m-0 p-0 m-0 p-0">Tipo de evento *</label>
+                        <select (change)="eventOnlineCheck($event)" name="tipoEvento" id="tipoEvento" class="form-select" aria-label="Default select example"  [(ngModel)]="modelEvento.tipoEvento" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="online">En linea</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="nombre" class="form-label m-0 p-0 m-0 p-0">Descripción</label>
+                <textarea placeholder="Este evento es..." name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"  [(ngModel)]="modelEvento.descripcion"></textarea>
+
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="FechaYHoraInicio" class="form-label m-0 p-0 m-0 p-0">Fecha y Hora inicio *</label>
+                     <div class="d-flex">
+                        <input placeholder="Exposición de arte" type="datetime-local" class="form-control" id="fechaInicio"
+                        aria-describedby="fechaInicio" name="fechaInicio" [(ngModel)]="modelEvento.fechaInicio"
+                        required>
+                     </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="FechaYHoraInicio" class="form-label m-0 p-0 m-0 p-0">Fecha y Hora final *</label>
+                     <div class="d-flex">
+                        <input placeholder="Exposición de arte" type="datetime-local" class="form-control" id="fechaFinal"
+                        aria-describedby="fechaFinal" name="fechaFinal" [(ngModel)]="modelEvento.fechaFinal"
+                        required>
+                     </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!eventOnline" class="mb-3 form-group">
+                <label for="direccion" class="form-label m-0 p-0 m-0 p-0">Dirección completa <span *ngIf="!eventOnline">*</span></label>
+                <input placeholder="Calle..." type="text" class="form-control" id="direccion"
+                    aria-describedby="direccion" name="direccion" [(ngModel)]="modelEvento.direccion"
+                    required="{{!eventOnline ? true : false}}">
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3 form-group">
+                        <label for="enlaceStreaming" class="form-label m-0 p-0 m-0 p-0">Enlace Streaming <span *ngIf="eventOnline">*</span></label>
+                        <input placeholder="https://youtube.com" type="text" class="form-control" id="enlaceStreaming"
+                            aria-describedby="enlaceStreaming" name="enlaceStreaming" [(ngModel)]="modelEvento.enlaceStreaming"
+                            required="{{eventOnline ? true : false}}">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div  *ngIf="!eventOnline" class="mb-3 form-group">
+                        <label for="capacidadEvento" class="form-label m-0 p-0 m-0 p-0">Capacidad del evento presencial <span *ngIf="!eventsWithZones">*</span></label>
+                        <input placeholder="{{eventsWithZones ? '-' : 150}}" type="number" class="form-control" id="capacidadEvento"
+                            aria-describedby="capacidadEvento" name="capacidadEvento" [(ngModel)]="modelEvento.capacidadEvento" [disabled]="eventsWithZones"  required="{{!eventsWithZones ? true : false}}">
+                            <div class="form-check form-switch">
+                                <input (click)="eventZones($event)" class="form-check-input" type="checkbox" role="switch" id="eventosZonas">
+                                <label class="form-check-label form-text align-intems-center d-flex" for="eventosZonas">Activa esta opción si tu evento tendrá zonas</label>
+                              </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div *ngIf="eventsWithZones" class="row">
+
+                <h3>Añadir zonas</h3>
+                <p>Puedes añadir zonas si tu locación lo requiere así puedes segmentar tickets por tipo y cantidades</p>
+
+                <div class="mb-3 form-group">
+                    <label for="imageMapaZona" class="form-label m-0 p-0 m-0 p-0">Mapa de zonas</label>
+                    <input (change)="imageMapaZonaFile = $event" type="file" class="form-control" id="imageMapaZona"
+                        aria-describedby="imageMapaZona" name="imageMapaZona" required="{{eventsWithZones ? true : false}}">
+                    <div class="form-text">(Imágen jpg, jpeg, png | Tamaño máximo: 1mb |  Dimensión: 1000px x 1000px )</div>
+                </div>
+                
+                <div *ngFor="let zone of allZones; let i = index">
+
+
+                    <hr>
+                    <div class="row pt-2 pb-2">
+                        <p class="m-0"><b>Zona {{i + 1}}</b></p>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label for="nombreZona-{{i+1}}" class="form-label m-0 p-0 m-0 p-0">Nombre de zona *</label>
+                                <input placeholder="Tickets General" type="text" class="form-control" id="nombreZona-{{i+1}}"
+                                    name="nombreZona-{{i+1}}" [(ngModel)]="allZones[i].nombreZona"
+                                    required="{{eventsWithZones ? true : false}}">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="cantidadDeTickets-{{i+1}}" class="form-label m-0 p-0 m-0 p-0">Cantidad de tickets *</label>
+                                <input placeholder="30" type="number" class="form-control" id="cantidadDeTickets-{{i+1}}"
+                                    name="cantidadDeTickets-{{i+1}}" [(ngModel)]="allZones[i].cantidadDeTickets"  required="{{eventsWithZones ? true : false}}">
+                            </div>
+                        </div>
+                        <div class="col-1 d-flex align-items-center justify-content-center">
+                            <span class="cursor-pointer" (click)="removeZone(i)" ><i class="bi bi-trash"></i> </span>
+                        </div>
+                    </div>
+
+                </div>
+                
+              
+
+                <div class="row mt-4 mb-4">
+                    <div class="col text-start">
+                        <span class="cursor-pointer" (click)="addZones()" ><i class="bi bi-plus-circle-fill"></i> Añadir zona </span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div *ngIf="!creatingEvent" class="d-grid gap-2 pt-2">
+                <button type="submit" class="btn btn-p-b btn-black p-2 rounded-3 w-100 mt-4 mb-4">Crear Evento </button>
+              </div>
+
+              <div *ngIf="creatingEvent" class="d-grid gap-2 pt-2 justify-content-center align-items-center">
+                <div class="spinner-border text-dark" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+              </div>
+
+
+           
+
+
+        </form>
+    </div>
+
+    <div class="col-5 d-flex justify-content-end">
+
+    </div>
+
+    <div class="col-1"></div>
+
+</div>
