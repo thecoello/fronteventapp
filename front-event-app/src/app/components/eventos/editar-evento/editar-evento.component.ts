@@ -27,6 +27,15 @@ export class EditarEventoComponent {
   constructor(private eventService: EventService, private router: Router) { }
   ngOnInit(): void {
     this.modelEvento.tipoEvento = ""
+
+    this.eventService.getEventById(1).subscribe((response) =>{
+      this.modelEvento = response
+
+      if(response.zonas){
+        this.eventsWithZones = true
+        this.allZones =  response.zonas
+      }
+      })
   }
 
   eventOnlineCheck(event: any) {
@@ -35,9 +44,6 @@ export class EditarEventoComponent {
 
   eventZones(event: any) {
     !this.eventsWithZones ? this.eventsWithZones = true : this.eventsWithZones = false
-    if (!this.eventsWithZones) {
-      this.allZones = []
-    }
   }
 
 
@@ -85,6 +91,10 @@ export class EditarEventoComponent {
                 const zonas = JSON.stringify({ zonas: this.allZones })
                 formData.append("zonas", zonas.toString())
                 formData.delete("capacidadEvento")
+              }else{
+                this.allZones = []
+
+                console.log(this.allZones)
               }
 
               formData.append('userAdminId', '1')

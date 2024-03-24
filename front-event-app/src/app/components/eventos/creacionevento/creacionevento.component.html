@@ -96,7 +96,7 @@
                 <div class="col-6">
                     <div  *ngIf="!eventOnline" class="mb-3 form-group">
                         <label for="capacidadEvento" class="form-label m-0 p-0 m-0 p-0">Capacidad del evento presencial <span *ngIf="!eventsWithZones">*</span></label>
-                        <input placeholder="{{eventsWithZones ? '-' : 150}}" type="number" class="form-control" id="capacidadEvento"
+                        <input placeholder="{{eventsWithZones ? '-' : 150}}" type="number" min="0" class="form-control" id="capacidadEvento"
                             aria-describedby="capacidadEvento" name="capacidadEvento" [(ngModel)]="modelEvento.capacidadEvento" [disabled]="eventsWithZones"  required="{{!eventsWithZones ? true : false}}">
                             <div class="form-check form-switch">
                                 <input (click)="eventZones($event)" class="form-check-input" type="checkbox" role="switch" id="eventosZonas">
@@ -135,8 +135,8 @@
                         </div>
                         <div class="col-3">
                             <div class="form-group">
-                                <label for="cantidadDeTickets-{{i+1}}" class="form-label m-0 p-0 m-0 p-0">Cantidad de tickets *</label>
-                                <input placeholder="30" type="number" class="form-control" id="cantidadDeTickets-{{i+1}}"
+                                <label for="cantidadDeTickets-{{i+1}}" class="form-label m-0 p-0 m-0 p-0">Cantidad *</label>
+                                <input placeholder="30" type="number" min="0" class="form-control" id="cantidadDeTickets-{{i+1}}"
                                     name="cantidadDeTickets-{{i+1}}" [(ngModel)]="allZones[i].cantidadDeTickets"  required="{{eventsWithZones ? true : false}}">
                             </div>
                         </div>
