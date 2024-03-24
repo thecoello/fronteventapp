@@ -8,6 +8,15 @@
 
         <hr>
 
+        <div *ngIf="registerStatusOk" class="alert alert-success mt-4" role="alert">
+            {{registerStatusOk}}
+          </div>
+
+          <div *ngIf="registerStatusKo" class="alert alert-danger mt-4" role="alert">
+            {{registerStatusKo}}
+
+          </div>
+
         <form #registroEvento="ngForm" (ngSubmit)="onSubmit(registroEvento, $event)"
             class="{{inputsValidate? 'was-validated' : 'needs-validation'}}">
             <div class="mb-3 form-group">
@@ -29,7 +38,7 @@
                 <div class="col-6">
                     <div class="mb-3 form-group">
                         <label for="tipoEvento" class="form-label m-0 p-0 m-0 p-0">Tipo de evento *</label>
-                        <select (change)="eventOnlineCheck($event)" name="tipoEvento" id="tipoEvento" class="form-select" aria-label="Default select example"  [(ngModel)]="modelEvento.tipoEvento">
+                        <select (change)="eventOnlineCheck($event)" name="tipoEvento" id="tipoEvento" class="form-select" aria-label="Default select example"  [(ngModel)]="modelEvento.tipoEvento" required>
                             <option value="" disabled selected>Selecciona una opción</option>
                             <option value="presencial">Presencial</option>
                             <option value="online">En linea</option>
@@ -69,26 +78,26 @@
             </div>
 
             <div *ngIf="!eventOnline" class="mb-3 form-group">
-                <label for="direccion" class="form-label m-0 p-0 m-0 p-0">Dirección completa *</label>
+                <label for="direccion" class="form-label m-0 p-0 m-0 p-0">Dirección completa <span *ngIf="!eventOnline">*</span></label>
                 <input placeholder="Calle..." type="text" class="form-control" id="direccion"
                     aria-describedby="direccion" name="direccion" [(ngModel)]="modelEvento.direccion"
-                    required>
+                    required="{{!eventOnline ? true : false}}">
             </div>
 
             <div class="row">
                 <div class="col-6">
                     <div class="mb-3 form-group">
-                        <label for="enlaceStreaming" class="form-label m-0 p-0 m-0 p-0">Enlace Streaming *</label>
+                        <label for="enlaceStreaming" class="form-label m-0 p-0 m-0 p-0">Enlace Streaming <span *ngIf="eventOnline">*</span></label>
                         <input placeholder="https://youtube.com" type="text" class="form-control" id="enlaceStreaming"
                             aria-describedby="enlaceStreaming" name="enlaceStreaming" [(ngModel)]="modelEvento.enlaceStreaming"
-                            required>
+                            required="{{eventOnline ? true : false}}">
                     </div>
                 </div>
                 <div class="col-6">
                     <div  *ngIf="!eventOnline" class="mb-3 form-group">
-                        <label for="capacidadEvento" class="form-label m-0 p-0 m-0 p-0">Capacidad del evento presencial *</label>
+                        <label for="capacidadEvento" class="form-label m-0 p-0 m-0 p-0">Capacidad del evento presencial <span *ngIf="!eventsWithZones">*</span></label>
                         <input placeholder="{{eventsWithZones ? '-' : 150}}" type="number" class="form-control" id="capacidadEvento"
-                            aria-describedby="capacidadEvento" name="capacidadEvento" [(ngModel)]="modelEvento.capacidadEvento" [disabled]="eventsWithZones"  required>
+                            aria-describedby="capacidadEvento" name="capacidadEvento" [(ngModel)]="modelEvento.capacidadEvento" [disabled]="eventsWithZones"  required="{{!eventsWithZones ? true : false}}">
                             <div class="form-check form-switch">
                                 <input (click)="eventZones($event)" class="form-check-input" type="checkbox" role="switch" id="eventosZonas">
                                 <label class="form-check-label form-text align-intems-center d-flex" for="eventosZonas">Activa esta opción si tu evento tendrá zonas</label>
@@ -106,7 +115,7 @@
                 <div class="mb-3 form-group">
                     <label for="imageMapaZona" class="form-label m-0 p-0 m-0 p-0">Mapa de zonas</label>
                     <input (change)="imageMapaZonaFile = $event" type="file" class="form-control" id="imageMapaZona"
-                        aria-describedby="imageMapaZona" name="imageMapaZona" required>
+                        aria-describedby="imageMapaZona" name="imageMapaZona" required="{{eventsWithZones ? true : false}}">
                     <div class="form-text">(Imágen jpg, jpeg, png | Tamaño máximo: 1mb |  Dimensión: 1000px x 1000px )</div>
                 </div>
                 
@@ -121,14 +130,14 @@
                                 <label for="nombreZona-{{i+1}}" class="form-label m-0 p-0 m-0 p-0">Nombre de zona *</label>
                                 <input placeholder="Tickets General" type="text" class="form-control" id="nombreZona-{{i+1}}"
                                     name="nombreZona-{{i+1}}" [(ngModel)]="allZones[i].nombreZona"
-                                    required>
+                                    required="{{eventsWithZones ? true : false}}">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="cantidadDeTickets-{{i+1}}" class="form-label m-0 p-0 m-0 p-0">Cantidad de tickets *</label>
                                 <input placeholder="30" type="number" class="form-control" id="cantidadDeTickets-{{i+1}}"
-                                    name="cantidadDeTickets-{{i+1}}" [(ngModel)]="allZones[i].cantidadDeTickets"  required>
+                                    name="cantidadDeTickets-{{i+1}}" [(ngModel)]="allZones[i].cantidadDeTickets"  required="{{eventsWithZones ? true : false}}">
                             </div>
                         </div>
                         <div class="col-1 d-flex align-items-center justify-content-center">
@@ -149,9 +158,19 @@
 
             </div>
 
+            <div *ngIf="!creatingEvent" class="d-grid gap-2 pt-2">
+                <button type="submit" class="btn btn-p-b btn-black p-2 rounded-3 w-100 mt-4 mb-4">Crear Evento </button>
+              </div>
+
+              <div *ngIf="creatingEvent" class="d-grid gap-2 pt-2 justify-content-center align-items-center">
+                <div class="spinner-border text-dark" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+              </div>
+
+
            
 
-            <button type="submit" class="btn btn-p-b btn-black p-2 rounded-3 w-100 mt-4 mb-4">Crear Evento </button>
 
         </form>
     </div>

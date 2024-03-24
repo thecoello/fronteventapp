@@ -52,7 +52,6 @@ export class RegistroUsuarioComponent {
         this.creatingUser = false
         this.inputsValidate = true
       }
-
      
   }
 }

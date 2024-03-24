@@ -11,15 +11,15 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
-  getEventList(): Observable<Event[]> {
-    return this.http.get<Event[]>(`${this.baseUrl}`);
+  getEventList(): Observable<any> {
+    return this.http.get<Array<Event>>(`${this.baseUrl}`);
   }
 
   getEventById(id: number): Observable<Event> {
     return this.http.get<Event>(`${this.baseUrl}/${id}`);
   }
 
-  createEvent(body: FormData): Observable<Object> {
+  createEvent(body: FormData): Observable<any> {
     const headers = new HttpHeaders({'Accept':'*/*'})
     return this.http.post(`${this.baseUrl}`, body, {headers});
   }
