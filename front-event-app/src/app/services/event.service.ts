@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Event } from '../models/events';
 
@@ -7,7 +7,7 @@ import { Event } from '../models/events';
   providedIn: 'root'
 })
 export class EventService {
-  private baseUrl = 'http://localhost:8080/api/events';
+  private baseUrl = 'http://localhost:8080/events';
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +19,9 @@ export class EventService {
     return this.http.get<Event>(`${this.baseUrl}/${id}`);
   }
 
-  createEvent(event: Event): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, event);
+  createEvent(body: FormData): Observable<Object> {
+    const headers = new HttpHeaders({'Accept':'*/*'})
+    return this.http.post(`${this.baseUrl}`, body, {headers});
   }
 
   updateEvent(id: number, event: Event): Observable<Object> {

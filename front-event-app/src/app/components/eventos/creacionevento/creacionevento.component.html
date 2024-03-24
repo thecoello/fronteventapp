@@ -12,8 +12,8 @@
             class="{{inputsValidate? 'was-validated' : 'needs-validation'}}">
             <div class="mb-3 form-group">
                 <label for="image" class="form-label m-0 p-0 m-0 p-0">Banner Evento</label>
-                <input type="file" class="form-control" id="image"
-                    aria-describedby="image" name="image" [(ngModel)]="modelEvento.image" required>
+                <input (change)="imageFile = $event" type="file" class="form-control" id="image"
+                    aria-describedby="image" name="image" required>
                 <div class="form-text"> (Imágen jpg, jpeg, png | Tamaño máximo: 1mb | Dimensión: 1000px x 1000px )</div>
             </div>
 
@@ -41,7 +41,7 @@
 
             <div class="mb-3 form-group">
                 <label for="nombre" class="form-label m-0 p-0 m-0 p-0">Descripción</label>
-                <textarea placeholder="Este evento es..." class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea placeholder="Este evento es..." name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"  [(ngModel)]="modelEvento.descripcion"></textarea>
 
             </div>
 
@@ -50,11 +50,8 @@
                     <div class="mb-3 form-group">
                         <label for="FechaYHoraInicio" class="form-label m-0 p-0 m-0 p-0">Fecha y Hora inicio *</label>
                      <div class="d-flex">
-                        <input placeholder="Exposición de arte" type="date" class="form-control" id="fechaInicio"
-                        aria-describedby="fechaInicio" name="fechaInicio" 
-                        required>
-                        <input placeholder="Exposición de arte" type="time" class="form-control" id="horaIncio"
-                        aria-describedby="horaIncio" name="horaIncio" 
+                        <input placeholder="Exposición de arte" type="datetime-local" class="form-control" id="fechaInicio"
+                        aria-describedby="fechaInicio" name="fechaInicio" [(ngModel)]="modelEvento.fechaInicio"
                         required>
                      </div>
                     </div>
@@ -63,11 +60,8 @@
                     <div class="mb-3 form-group">
                         <label for="FechaYHoraInicio" class="form-label m-0 p-0 m-0 p-0">Fecha y Hora final *</label>
                      <div class="d-flex">
-                        <input placeholder="Exposición de arte" type="date" class="form-control" id="fechaFinal"
-                        aria-describedby="fechaFinal" name="fechaFinal"
-                        required>
-                        <input placeholder="Exposición de arte" type="time" class="form-control" id="horaFinal"
-                        aria-describedby="horaFinal" name="horaFinal"
+                        <input placeholder="Exposición de arte" type="datetime-local" class="form-control" id="fechaFinal"
+                        aria-describedby="fechaFinal" name="fechaFinal" [(ngModel)]="modelEvento.fechaFinal"
                         required>
                      </div>
                     </div>
@@ -110,9 +104,9 @@
                 <p>Puedes añadir zonas si tu locación lo requiere así puedes segmentar tickets por tipo y cantidades</p>
 
                 <div class="mb-3 form-group">
-                    <label for="image" class="form-label m-0 p-0 m-0 p-0">Mapa de zonas</label>
-                    <input type="file" class="form-control" id="image"
-                        aria-describedby="image" name="image" [(ngModel)]="modelEvento.imageMapaZona" required>
+                    <label for="imageMapaZona" class="form-label m-0 p-0 m-0 p-0">Mapa de zonas</label>
+                    <input (change)="imageMapaZonaFile = $event" type="file" class="form-control" id="imageMapaZona"
+                        aria-describedby="imageMapaZona" name="imageMapaZona" required>
                     <div class="form-text">(Imágen jpg, jpeg, png | Tamaño máximo: 1mb |  Dimensión: 1000px x 1000px )</div>
                 </div>
                 
