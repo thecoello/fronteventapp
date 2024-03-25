@@ -70,7 +70,7 @@ export class CreacioneventoComponent implements OnInit {
             this.inputsValidate = true
           } else {
 
-            if (this.eventsWithZones && this.allZones.length == 0 || this.eventsWithZones && validateZones.includes(true) || this.eventsWithZones && this.imageMapaZonaFile == null || !this.eventsWithZones && !this.modelEvento.capacidadEvento) {
+            if (this.eventsWithZones && !this.eventOnline && this.allZones.length == 0 || this.eventsWithZones && !this.eventOnline && validateZones.includes(true) || this.eventsWithZones && !this.eventOnline && this.imageMapaZonaFile == null || !this.eventsWithZones && !this.eventOnline && !this.modelEvento.capacidadEvento) {
               this.creatingEvent = false
               this.inputsValidate = true
 
