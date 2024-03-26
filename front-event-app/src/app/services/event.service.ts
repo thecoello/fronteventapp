@@ -24,8 +24,9 @@ export class EventService {
     return this.http.post(`${this.baseUrl}`, body, {headers});
   }
 
-  updateEvent(id: number, event: Event): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, event);
+  updateEvent(id: number, body: FormData): Observable<any> {
+    const headers = new HttpHeaders({'Accept':'*/*'})
+    return this.http.put(`${this.baseUrl}/${id}`, body,{headers});
   }
 
   deleteEvent(id: number): Observable<Object> {
