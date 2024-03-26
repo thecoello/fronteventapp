@@ -115,7 +115,7 @@ export class EditarEventoComponent {
               formData.append('direccion', this.modelEvento.direccion ? JSON.stringify(this.modelEvento.direccion).replaceAll('"', "") : "")
               formData.append('imageMapaZona', this.imageMapaZonaFile != null ? this.imageMapaZonaFile.target.files[0] : this.imageMapaZonaFile)
 
-              this.eventService.createEvent(formData).subscribe((response) => {
+              this.eventService.updateEvent(1,formData).subscribe((response) => {
                 setTimeout(() => {
                   this.creatingEvent = false
                   this.registerStatusKo = ""
